@@ -8,7 +8,7 @@ void SceneManager::addScene(std::unique_ptr<Scene> newScene, bool isReplacing)
 	m_isAdding = true;
 }
 
-void SceneManager::removeScene()
+void SceneManager::removeCurrentScene()
 {
 	m_isRemoving = true;
 }

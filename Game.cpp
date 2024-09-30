@@ -17,8 +17,15 @@ void Game::run()
 	{
 		float dt = m_clock.restart().asSeconds();
 		m_ctx->m_sceneMan->processSceneChnage();
-		m_ctx->m_sceneMan->getActiveScene()->handleInput();
-		m_ctx->m_sceneMan->getActiveScene()->update(dt);
-		m_ctx->m_sceneMan->getActiveScene()->draw();
+
+		if (!m_ctx->m_sceneMan->isEmpty())
+		{
+			m_ctx->m_sceneMan->getActiveScene()->handleInput();
+			m_ctx->m_sceneMan->getActiveScene()->update(dt);
+			m_ctx->m_sceneMan->getActiveScene()->draw();
+		}
+		else {
+			m_ctx->m_window->close();
+		}
 	}
 }

@@ -12,9 +12,10 @@ public:
 	~SceneManager() {}
 
 	void addScene(std::unique_ptr<Scene> newScene, bool isReplacing = true);
-	void removeScene();
+	void removeCurrentScene();
 	void processSceneChnage();
 	std::unique_ptr<Scene>& getActiveScene();
+	bool isEmpty() { return m_scenes.empty(); }
 
 private:
 	std::stack<std::unique_ptr<Scene>> m_scenes;

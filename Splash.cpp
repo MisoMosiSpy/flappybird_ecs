@@ -19,7 +19,7 @@ void Splash::handleInput()
 	while (m_ctx->m_window->pollEvent(event))
 	{
 		if (event.type == sf::Event::Closed)
-			m_ctx->m_window->close();
+			m_ctx->m_sceneMan->removeCurrentScene();
 	}
 }
 
