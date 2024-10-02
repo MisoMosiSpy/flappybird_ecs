@@ -1,4 +1,5 @@
 #include "Splash.h"
+#include "GamePlay.h"
 #include <iostream>
 
 void Splash::init()
@@ -12,17 +13,13 @@ void Splash::init()
 	m_title.setOrigin(m_title.getGlobalBounds().getSize()/2.0f);
 	m_title.setPosition(m_ctx->m_window->getSize().x / 2.0f, m_ctx->m_window->getSize().y / 4.0f);
 
-
 	m_ctx->m_assetMan->addTexture(BACKGROUND, "Resources/res/sky.png");
 	m_background.setTexture(m_ctx->m_assetMan->getTexture(BACKGROUND));
-
 
 	m_ctx->m_assetMan->addTexture(PLAY_BUTTON, "Resources/res/PlayButton.png");
 	m_playButton.setTexture(m_ctx->m_assetMan->getTexture(PLAY_BUTTON));
 	m_playButton.setOrigin(m_playButton.getGlobalBounds().getSize() / 2.0f);
 	m_playButton.setPosition(m_ctx->m_window->getSize().x / 2.0f, m_ctx->m_window->getSize().y / 2.0f);
-
-
 }
 
 void Splash::handleInput()
@@ -36,6 +33,7 @@ void Splash::handleInput()
 
 	if (m_ctx->m_inputMan->isSpriteClicked(m_playButton, sf::Mouse::Left, *m_ctx->m_window.get())) {
 		std::cout << "Load next state..." << std::endl;
+		m_ctx->m_sceneMan->addScene(std::make_unique<GamePlay>(m_ctx));
 	}
 }
 
@@ -46,7 +44,6 @@ void Splash::update(float dt)
 
 void Splash::draw()
 {
-
 	m_ctx->m_window->clear(sf::Color{ 52,220,235,255 });
 	m_ctx->m_window->draw(m_background);
 	m_ctx->m_window->draw(m_title);

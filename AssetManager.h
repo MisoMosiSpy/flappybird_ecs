@@ -2,11 +2,13 @@
 #include <map>
 #include <SFML/Graphics.hpp>
 
+#include <iostream>
+
 class AssetManager
 {
 public:
-	AssetManager() {};
-	~AssetManager() {}
+	AssetManager() { std::cout << "+ assman" << std::endl; };
+	~AssetManager() { std::cout << "- assman" << std::endl; }
 
 	void addTexture(int id, std::string filename, bool isTiled = false);
 	sf::Texture& getTexture(int id);
