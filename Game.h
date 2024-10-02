@@ -7,8 +7,13 @@
 #include "SceneManager.h"
 #include "InputManager.h"
 
-enum {
+enum Fonts {
 	TITLE_FONT = 0,
+};
+
+enum Graphics {
+	BACKGROUND = 0,
+	PLAY_BUTTON,
 };
 
 struct Context {

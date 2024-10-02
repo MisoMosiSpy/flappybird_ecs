@@ -18,5 +18,7 @@ private:
     std::shared_ptr<Context> m_ctx;
     sf::Font m_font;
     sf::Text m_title;
+    sf::Sprite m_playButton;
+    sf::Sprite m_background;
 };
 

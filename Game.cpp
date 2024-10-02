@@ -3,7 +3,7 @@
 
 Game::Game() : m_ctx{ std::make_shared<Context>() }
 {
-	m_ctx->m_window->create(sf::VideoMode(768, 1024), "ECS Rocks");
+	m_ctx->m_window->create(sf::VideoMode(768, 1024), "Flappy Bird!");
 	m_ctx->m_window->setFramerateLimit(60);
 
 	m_ctx->m_sceneMan->addScene(std::make_unique<Splash>(m_ctx));
