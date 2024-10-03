@@ -1,0 +1,32 @@
+// SPDX-FileCopyrightText: 2024 MisoMosiSpy
+// SPDX-License-Identifier: MIT
+
+#include "Bird.h"
+
+#include "Game.h"
+
+Bird::Bird(std::shared_ptr<Context> ctx) : m_ctx(ctx) {
+
+    for (unsigned int i = BIRD_FRAME1; i <= BIRD_FRAME4; i++) {
+        m_birdFrames.push_back(m_ctx->m_assetMan->getTexture(i));
+    }
+
+    m_birdSprite.setOrigin(m_birdSprite.getGlobalBounds().getSize() / 2.0f);
+    m_birdSprite.setPosition(m_ctx->m_window->getSize().x / 6.0f,
+                             m_ctx->m_window->getSize().y / 3.0f);
+}
+
+void Bird::draw() {
+    m_ctx->m_window->draw(m_birdSprite);
+    ;
+}
+
+void Bird::update(float dt) {
+    m_frameDuration += dt;
+    if (m_frameDuration > m_animationSpeed) {
+        m_frameDuration -= m_animationSpeed;
+        m_currentFrame = (m_currentFrame + 1) % m_maxFrames;
+        m_birdSprite.setTexture(m_birdFrames.at(m_currentFrame));
+    }
+}
+

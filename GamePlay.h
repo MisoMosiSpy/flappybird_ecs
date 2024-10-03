@@ -2,6 +2,8 @@
 // SPDX-License-Identifier: MIT
 
 #pragma once
+
+#include "Bird.h"
 #include "Game.h"
 #include "Land.h"
 #include "Pipe.h"
@@ -28,5 +30,6 @@ private:
     sf::Sprite m_background;
     std::unique_ptr<Land> m_land;
     std::unique_ptr<Pipe> m_pipe;
+    std::unique_ptr<Bird> m_bird;
 };
 

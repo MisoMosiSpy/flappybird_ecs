@@ -14,7 +14,17 @@ enum Fonts {
     TITLE_FONT = 0,
 };
 
-enum Graphics { BACKGROUND = 0, PLAY_BUTTON, GROUND, PIPE_UP, PIPE_DOWN };
+enum Graphics {
+    BACKGROUND = 0,
+    PLAY_BUTTON,
+    GROUND,
+    PIPE_UP,
+    PIPE_DOWN,
+    BIRD_FRAME1,
+    BIRD_FRAME2,
+    BIRD_FRAME3,
+    BIRD_FRAME4,
+};
 
 struct Settings {
     float gameSpeed = 100.0f;

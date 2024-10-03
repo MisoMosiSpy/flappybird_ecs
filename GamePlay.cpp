@@ -11,8 +11,16 @@ void GamePlay::init() {
     // Load all textures needed for the Gameplay Scene here
     //
     m_ctx->m_assetMan->addTexture(GROUND, "Resources/res/land.png");
+
+    // Pipes
     m_ctx->m_assetMan->addTexture(PIPE_UP, "Resources/res/PipeUp.png");
     m_ctx->m_assetMan->addTexture(PIPE_DOWN, "Resources/res/PipeDown.png");
+
+    // Bird
+    m_ctx->m_assetMan->addTexture(BIRD_FRAME1, "Resources/res/bird-01.png");
+    m_ctx->m_assetMan->addTexture(BIRD_FRAME2, "Resources/res/bird-02.png");
+    m_ctx->m_assetMan->addTexture(BIRD_FRAME3, "Resources/res/bird-03.png");
+    m_ctx->m_assetMan->addTexture(BIRD_FRAME4, "Resources/res/bird-04.png");
 
     // The texture for the background is already loaded in the Splash screen
     // However, we add it here again as our asset manager can detect this
@@ -22,6 +30,7 @@ void GamePlay::init() {
 
     m_land = std::make_unique<Land>(m_ctx);
     m_pipe = std::make_unique<Pipe>(m_ctx);
+    m_bird = std::make_unique<Bird>(m_ctx);
 }
 
 void GamePlay::handleInput() {
@@ -43,6 +52,7 @@ void GamePlay::handleInput() {
 void GamePlay::update(float dt) {
     m_land->update(dt);
     m_pipe->update(dt);
+    m_bird->update(dt);
 }
 
 void GamePlay::draw() {
@@ -50,5 +60,6 @@ void GamePlay::draw() {
     m_ctx->m_window->draw(m_background);
     m_pipe->draw();
     m_land->draw();
+    m_bird->draw();
     m_ctx->m_window->display();
 }
