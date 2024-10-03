@@ -22,11 +22,41 @@ void Bird::draw() {
 }
 
 void Bird::update(float dt) {
+
+    float rotation = 0;
+
+    if (m_isActive) {
+
+        m_flightTime += dt;
+        if (m_flightTime > m_flightTimeout) {
+            m_flightTime -= m_flightTimeout;
+            m_isFlying = false;
+        }
+
+        if (m_isFlying) {
+            m_birdSprite.move(0, -m_ctx->m_settings->gravity * dt);
+            rotation = -10;
+        } else {
+            m_birdSprite.move(0, m_ctx->m_settings->gravity * dt);
+            rotation = 10;
+        }
+    }
+
     m_frameDuration += dt;
     if (m_frameDuration > m_animationSpeed) {
         m_frameDuration -= m_animationSpeed;
         m_currentFrame = (m_currentFrame + 1) % m_maxFrames;
         m_birdSprite.setTexture(m_birdFrames.at(m_currentFrame));
+    }
+
+    m_birdSprite.setRotation(rotation);
+}
+
+void Bird::handleInput() {
+    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
+        m_isActive = true;
+
+        if (!m_isFlying) m_isFlying = true;
     }
 }
 

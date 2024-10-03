@@ -47,6 +47,8 @@ void GamePlay::handleInput() {
             }
         }
     }
+
+    m_bird->handleInput();
 }
 
 void GamePlay::update(float dt) {

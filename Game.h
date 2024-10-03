@@ -29,6 +29,7 @@ enum Graphics {
 struct Settings {
     float gameSpeed = 100.0f;
     int pipeVariation = 200;
+    float gravity = 200.0f;
 };
 
 struct Context {
