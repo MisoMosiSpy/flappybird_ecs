@@ -1,12 +1,15 @@
-#pragma once
-#include "Scene.h"
-#include "Game.h"
+// SPDX-FileCopyrightText: 2024 MisoMosiSpy
+// SPDX-License-Identifier: MIT
 
-class Splash :
-    public Scene
-{
+#pragma once
+#include "Game.h"
+#include "Scene.h"
+
+class Splash : public Scene {
 public:
-    Splash(std::shared_ptr<Context> ctx) : m_ctx { ctx }{}
+
+    Splash(std::shared_ptr<Context> ctx) : m_ctx{ctx} {}
+
     ~Splash() {}
 
     void init();
@@ -15,6 +18,7 @@ public:
     void draw();
 
 private:
+
     std::shared_ptr<Context> m_ctx;
     sf::Font m_font;
     sf::Text m_title;

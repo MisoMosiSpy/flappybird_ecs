@@ -1,23 +1,27 @@
+// SPDX-FileCopyrightText: 2024 MisoMosiSpy
+// SPDX-License-Identifier: MIT
+
 #pragma once
+#include <iostream>
 #include <map>
 #include <SFML/Graphics.hpp>
 
-#include <iostream>
-
-class AssetManager
-{
+class AssetManager {
 public:
-	AssetManager() { std::cout << "+ assman" << std::endl; };
-	~AssetManager() { std::cout << "- assman" << std::endl; }
 
-	void addTexture(int id, std::string filename, bool isTiled = false);
-	sf::Texture& getTexture(int id);
+    AssetManager() {}
 
-	void addFont(int id, std::string filename);
-	sf::Font& getFont(int id);
+    ~AssetManager() {}
+
+    void addTexture(int id, std::string filename, bool isTiled = false);
+    sf::Texture& getTexture(int id);
+
+    void addFont(int id, std::string filename);
+    sf::Font& getFont(int id);
 
 private:
-	std::map<int, sf::Texture> m_textures;
-	std::map<int, sf::Font> m_fonts;
+
+    std::map<int, sf::Texture> m_textures;
+    std::map<int, sf::Font> m_fonts;
 };
 

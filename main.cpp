@@ -1,10 +1,12 @@
+// SPDX-FileCopyrightText: 2024 MisoMosiSpy
+// SPDX-License-Identifier: MIT
+
 #include "Game.h"
 
-int main()
-{
-	Game game;
+int main() {
+    Game game;
 
-	game.run();
+    game.run();
 
-	return 0;
+    return 0;
 }
