@@ -14,14 +14,11 @@ enum Fonts {
     TITLE_FONT = 0,
 };
 
-enum Graphics {
-    BACKGROUND = 0,
-    PLAY_BUTTON,
-    GROUND,
-};
+enum Graphics { BACKGROUND = 0, PLAY_BUTTON, GROUND, PIPE_UP, PIPE_DOWN };
 
 struct Settings {
     float gameSpeed = 100.0f;
+    int pipeVariation = 200;
 };
 
 struct Context {

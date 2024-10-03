@@ -3,7 +3,8 @@
 
 #pragma once
 #include "Game.h"
-#include "land.h"
+#include "Land.h"
+#include "Pipe.h"
 #include "Scene.h"
 
 class GamePlay : public Scene {
@@ -26,5 +27,6 @@ private:
     std::shared_ptr<Context> m_ctx;
     sf::Sprite m_background;
     std::unique_ptr<Land> m_land;
+    std::unique_ptr<Pipe> m_pipe;
 };
 
