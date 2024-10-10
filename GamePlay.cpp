@@ -49,13 +49,19 @@ void GamePlay::handleInput() {
                 m_pipe->spwan();
             }
         }
-    }
 
-    m_bird->handleInput();
+        if (m_state != GameState::GAME_OVER) {
+            if (m_ctx->m_inputMan->isSpriteClicked(m_background, sf::Mouse::Left,
+                                                   *(m_ctx->m_window.get()))) {
+                m_bird->tap();
+                m_state = GameState::GAME_RUNNING;
+            }
+        }
+    }
 }
 
 void GamePlay::update(float dt) {
-    if (m_state != GameState::GAME_OVER) {
+    if (m_state == GameState::GAME_RUNNING) {
         m_land->update(dt);
         m_pipe->update(dt);
         m_bird->update(dt);

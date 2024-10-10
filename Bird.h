@@ -17,7 +17,7 @@ public:
 
     void draw();
     void update(float dt);
-    void handleInput();
+    void tap();
 
     bool checkCollision(const std::vector<sf::Sprite>& spriteList) const;
 

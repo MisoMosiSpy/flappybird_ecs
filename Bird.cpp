@@ -11,6 +11,8 @@ Bird::Bird(std::shared_ptr<Context> ctx) : m_ctx(ctx) {
         m_birdFrames.push_back(m_ctx->m_assetMan->getTexture(i));
     }
 
+    m_currentFrame = 0;
+    m_birdSprite.setTexture(m_birdFrames.at(m_currentFrame));
     m_birdSprite.setOrigin(m_birdSprite.getGlobalBounds().getSize() / 2.0f);
     m_birdSprite.setPosition(m_ctx->m_window->getSize().x / 6.0f,
                              m_ctx->m_window->getSize().y / 3.0f);
@@ -52,12 +54,10 @@ void Bird::update(float dt) {
     m_birdSprite.setRotation(rotation);
 }
 
-void Bird::handleInput() {
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::Space)) {
-        m_isActive = true;
+void Bird::tap() {
+    m_isActive = true;
 
-        if (!m_isFlying) m_isFlying = true;
-    }
+    if (!m_isFlying) m_isFlying = true;
 }
 
 bool Bird::checkCollision(const std::vector<sf::Sprite>& spriteList) const {
