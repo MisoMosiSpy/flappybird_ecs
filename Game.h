@@ -31,7 +31,9 @@ enum GameState { GAME_IDLE, GAME_RUNNING, GAME_OVER };
 struct Settings {
     float gameSpeed = 100.0f;
     int pipeVariation = 200;
-    float gravity = 200.0f;
+    float gravity = 100.0f;
+    float maxSpawnInterval = 5.0f;
+    float spawnVariation = 2.0f;
 };
 
 struct Context {

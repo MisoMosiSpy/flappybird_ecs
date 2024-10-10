@@ -9,9 +9,9 @@
 class AssetManager {
 public:
 
-    AssetManager() {}
+    AssetManager() { std::cout << "+ Ass man" << std::endl; }
 
-    ~AssetManager() {}
+    ~AssetManager() { std::cout << "- Ass man" << std::endl; }
 
     void addTexture(int id, std::string filename, bool isTiled = false);
     sf::Texture& getTexture(int id);

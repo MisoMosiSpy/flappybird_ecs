@@ -19,6 +19,7 @@ void Splash::init() {
 
     m_ctx->m_assetMan->addTexture(BACKGROUND, "Resources/res/sky.png");
     m_background.setTexture(m_ctx->m_assetMan->getTexture(BACKGROUND));
+    m_background.move(0, -200);  // We want to see the building in the center
 
     m_ctx->m_assetMan->addTexture(PLAY_BUTTON, "Resources/res/PlayButton.png");
     m_playButton.setTexture(m_ctx->m_assetMan->getTexture(PLAY_BUTTON));

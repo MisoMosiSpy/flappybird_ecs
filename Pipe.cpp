@@ -28,6 +28,20 @@ void Pipe::draw() {
 }
 
 void Pipe::update(float dt) {
+    static float spawnTimer = 0;
+
+    spawnTimer += dt;
+
+    if (spawnTimer > m_ctx->m_settings->maxSpawnInterval) {
+        // Max duration between two pipes is set my m_maxSpawnInterval
+        // we vary it be setting the running couter between 0 - 2 seconds
+        // so the actual spawn interval is from m_maxSpanInterval - 2  to
+        // m_maxSpawnInterval
+        int spawnVariation = static_cast<int>(m_ctx->m_settings->spawnVariation * 100);
+        spawnTimer = (rand() % spawnVariation) / 100.0f;
+        spwan();
+    }
+
     for (auto& pipe : m_pipes) {
         pipe.move(-m_ctx->m_settings->gameSpeed * dt, 0);
     }

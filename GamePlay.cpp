@@ -27,6 +27,7 @@ void GamePlay::init() {
     // and it makes this state independent of other state
     m_ctx->m_assetMan->addTexture(BACKGROUND, "Resources/res/sky.png");
     m_background.setTexture(m_ctx->m_assetMan->getTexture(BACKGROUND));
+    m_background.move(0, -200);  // We want to see the building in the center
 
     m_land = std::make_unique<Land>(m_ctx);
     m_pipe = std::make_unique<Pipe>(m_ctx);
