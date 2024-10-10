@@ -31,6 +31,8 @@ void GamePlay::init() {
     m_land = std::make_unique<Land>(m_ctx);
     m_pipe = std::make_unique<Pipe>(m_ctx);
     m_bird = std::make_unique<Bird>(m_ctx);
+
+    m_state = GameState::GAME_IDLE;
 }
 
 void GamePlay::handleInput() {
@@ -52,9 +54,21 @@ void GamePlay::handleInput() {
 }
 
 void GamePlay::update(float dt) {
-    m_land->update(dt);
-    m_pipe->update(dt);
-    m_bird->update(dt);
+    if (m_state != GameState::GAME_OVER) {
+        m_land->update(dt);
+        m_pipe->update(dt);
+        m_bird->update(dt);
+
+        if (m_bird->checkCollision(m_land->getGroundList())) {
+            std::cout << "Collieded with ground" << std::endl;
+            m_state = GameState::GAME_OVER;
+        }
+
+        if (m_bird->checkCollision(m_pipe->getPipesList())) {
+            std::cout << "Collieded with Pipe" << std::endl;
+            m_state = GameState::GAME_OVER;
+        }
+    }
 }
 
 void GamePlay::draw() {

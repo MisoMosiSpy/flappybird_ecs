@@ -60,3 +60,12 @@ void Bird::handleInput() {
     }
 }
 
+bool Bird::checkCollision(const std::vector<sf::Sprite>& spriteList) const {
+    for (auto sprite : spriteList) {
+        if (m_birdSprite.getGlobalBounds().intersects(sprite.getGlobalBounds())) {
+            return true;
+        }
+    }
+    return false;
+}
+

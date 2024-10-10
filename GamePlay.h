@@ -31,5 +31,6 @@ private:
     std::unique_ptr<Land> m_land;
     std::unique_ptr<Pipe> m_pipe;
     std::unique_ptr<Bird> m_bird;
+    GameState m_state;
 };
 

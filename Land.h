@@ -15,6 +15,8 @@ public:
     void draw();
     void update(float dt);
 
+    const std::vector<sf::Sprite>& getGroundList() const { return m_grounds; }
+
 private:
 
     std::shared_ptr<Context> m_ctx;

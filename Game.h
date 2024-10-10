@@ -26,6 +26,8 @@ enum Graphics {
     BIRD_FRAME4,
 };
 
+enum GameState { GAME_IDLE, GAME_RUNNING, GAME_OVER };
+
 struct Settings {
     float gameSpeed = 100.0f;
     int pipeVariation = 200;

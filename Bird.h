@@ -19,6 +19,8 @@ public:
     void update(float dt);
     void handleInput();
 
+    bool checkCollision(const std::vector<sf::Sprite>& spriteList) const;
+
 private:
 
     std::shared_ptr<Context> m_ctx;

@@ -22,6 +22,8 @@ public:
     void draw();
     void update(float dt);
 
+    const std::vector<sf::Sprite>& getPipesList() const { return m_pipes; }
+
 private:
 
     std::vector<sf::Sprite> m_pipes;
