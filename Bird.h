@@ -23,11 +23,12 @@ public:
 
 private:
 
+    enum BirdState { IDLE, FLYING, FALLING };
+
     std::shared_ptr<Context> m_ctx;
     std::vector<sf::Texture> m_birdFrames;
     sf::Sprite m_birdSprite;
-    bool m_isActive{false};
-    bool m_isFlying{false};
+    BirdState m_birdState;
 
     unsigned int m_currentFrame{0};
     float m_frameDuration{0};
@@ -36,6 +37,6 @@ private:
     const float m_animationSpeed{0.1f};
 
     float m_flightTime{0};
-    const float m_flightTimeout{0.5f};
+    const float m_flightTimeout{1.0f};
 };
 
